@@ -3,7 +3,7 @@ export const WINNER = 'WINNER'
 export const JUMP_TO = 'JUMP_TO'
 export const SORT = 'SORT'
 
-export const histories = ({ // history,squares,currentMove,i,COL,ROW) =>({
+export const saveHistory = ({ // history,squares,currentMove,i,COL,ROW) =>({
     type: HISTORIES,
    /* history,
     squares,
@@ -13,14 +13,14 @@ export const histories = ({ // history,squares,currentMove,i,COL,ROW) =>({
     ROW */
 })
 
-export const setWinner = ({ // squares,currentMove,i,COL,ROW,winner)=>({
+export const setWinner = (winner) => ({ // squares,currentMove,i,COL,ROW,winner)=>({
     type: WINNER,
    /* squares,
     currentMove,
     i,
     COL,
-    ROW,
-    winner */
+    ROW, */
+    winner
 })
 
 export const jumpTo = (step)=>({
