@@ -8,7 +8,7 @@ import './index.css';
 import Game from './components/Game';
 import * as serviceWorker from './serviceWorker';
 
-
+// container
 const store = createStore(myReducers)
 
 

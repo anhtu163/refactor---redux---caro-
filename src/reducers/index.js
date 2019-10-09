@@ -2,6 +2,7 @@ export const initialState = {
   history: [{
       squares: Array(400).fill(null),
       mv: 0,
+      highlight:false
     }],
     stepNumber: 0,
     xIsNext: true,
@@ -14,8 +15,7 @@ const myReducers = (state = initialState,action) =>{
 
   switch(action.type){
     case "WINNER":
-        return[
-          ...state,
+        return(
           {
               
               history: action.history.concat([{
@@ -29,18 +29,16 @@ const myReducers = (state = initialState,action) =>{
                 xIsNext: !state.xIsNext,
                 winner: action.winner,
           }
-      ]
+      )
     case "JUMP_TO":
-        return [
-          ...state,
+        return (
           {
               stepNumber: action.step,
               xIsNext: (action.step % 2) === 0,
           }
-      ]
+      )
     case "HISTORIES":
-        return [
-          ...state,
+        return (
           {
               history: action.history.concat([{
                   squares: action.squares,
@@ -52,14 +50,13 @@ const myReducers = (state = initialState,action) =>{
                 stepNumber: action.history.length,
                 xIsNext: !state.xIsNext,
           }
-      ]
+      )
     case "SORT":
-        return [
-          ...state,
+        return (
           {
               isSort: !state.isSort
           }
-      ]
+      )
     default:
         return state
   }

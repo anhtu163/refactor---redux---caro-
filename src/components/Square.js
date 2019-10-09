@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Square = (prps) =>  {
   let clname = "square";
   if (prps.highlight) {
@@ -9,5 +10,8 @@ const Square = (prps) =>  {
     {prps.value}
   </button>);
 }
+
+
+
 
 export default Square
