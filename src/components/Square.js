@@ -12,6 +12,4 @@ const Square = (prps) =>  {
 }
 
 
-
-
 export default Square

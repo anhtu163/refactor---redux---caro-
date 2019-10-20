@@ -17,7 +17,7 @@ const myReducers = (state = initialState,action) =>{
     case "WINNER":
         return(
           {
-              
+              ...state,
               history: action.history.concat([{
                   squares: action.squares,
                   mv: action.currentMove + 1,
@@ -29,10 +29,11 @@ const myReducers = (state = initialState,action) =>{
                 xIsNext: !state.xIsNext,
                 winner: action.winner,
           }
-      )
+        )
     case "JUMP_TO":
-        return (
+        return ( 
           {
+              ...state,
               stepNumber: action.step,
               xIsNext: (action.step % 2) === 0,
           }
@@ -40,6 +41,7 @@ const myReducers = (state = initialState,action) =>{
     case "HISTORIES":
         return (
           {
+              ...state,
               history: action.history.concat([{
                   squares: action.squares,
                   mv: action.currentMove + 1,
@@ -53,7 +55,8 @@ const myReducers = (state = initialState,action) =>{
       )
     case "SORT":
         return (
-          {
+          {   
+              ...state,
               isSort: !state.isSort
           }
       )

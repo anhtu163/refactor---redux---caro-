@@ -11,20 +11,6 @@ const COL = 20;
 
 
 class Game extends Component {
-  /* constructor(props) {
-    super(props);
-    this.state = {
-      history: [{
-        squares: Array(400).fill(null),
-        mv: 0,
-
-      }],
-      stepNumber: 0,
-      xIsNext: true,
-      winner: null,
-      isSort: true,
-    };
-  } */
 
   handleClick(i) {
     const st = this.props;
@@ -39,57 +25,21 @@ class Game extends Component {
     if(calculateWinner(squares)){
       const winner = squares[i]
       st.setWinner(history,squares,currentMove,i,COL,ROW,winner);
-      
-  /* this.setState(t =>({
-      history: history.concat([{
-        squares,
-        mv: currentMove + 1,
-        curRow: parseInt(i / COL, 10),
-        curCol: parseInt(i % COL, 10),
-        highlight: true,
-      }]),
-      stepNumber: history.length,
-      xIsNext: !t.xIsNext,
-      winner,
-    
-    })); */
+ 
     }
     else{
 
 
       st.saveHistory(history,squares,currentMove,i,COL,ROW);
-     /* this.setState(t=>({
-        history: history.concat([{
-          squares,
-          mv: currentMove + 1,
-          curRow: parseInt(i / COL, 10),
-          curCol: parseInt(i % COL, 10),
-          highlight: false,
-        }]),
-        stepNumber: history.length,
-        xIsNext: !t.xIsNext,
-      })); */
+     
     }
   }
-
-  /* jumpTo(step) {
-    const st = this.props
-    st.jumpTo(step)
-
-   
-  }
-
-  sortHistory(){
-    const st = this.props
-    st.sortHistory()
-  
-  } */
 
   render() {
     const st = this.props;
     const history = st.history.slice();
     const current = history[st.stepNumber];
-    // console.log(st.history)
+    
 
     if(!st.isSort){
       history.reverse();
